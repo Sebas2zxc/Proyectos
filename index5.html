@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Nicolás de los Arroyos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #f3f4f6;
+            --text-color: #333;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--secondary-color);
+            transition: background-color var(--transition-speed);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .section {
+            background-color: white;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform var(--transition-speed);
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        #socialMedia {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        #socialMedia a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color var(--transition-speed);
+        }
+
+        #socialMedia a:hover {
+            color: #3a7bc8;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color var(--transition-speed);
+        }
+
+        .btn:hover {
+            background-color: #3a7bc8;
+        }
+
+        #darkModeToggle {
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .dark-mode {
+            --primary-color: #4a90e2;
+            --secondary-color: #1a1a1a;
+            --text-color: #f0f0f0;
+        }
+
+        .dark-mode .section {
+            background-color: #2c2c2c;
+            color: var(--text-color);
+        }
+
+        .dark-mode h2 {
+            color: var(--primary-color);
+        }
+
+        .dark-mode a {
+            color: var(--primary-color);
+        }
+
+        .dark-mode #socialMedia a {
+            color: var(--primary-color);
+        }
+
+        .dark-mode #socialMedia a:hover {
+            color: #7ab0ff;
+        }
+
+        .dark-mode img {
+            filter: brightness(0.8) contrast(1.2);
+        }
+
+        nav {
+            background-color: var(--primary-color);
+            padding: 0.5rem 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color var(--transition-speed);
+            display: flex;
+            align-items: center;
+        }
+
+        nav ul li a:hover {
+            color: #ddd;
+        }
+
+        nav ul li a i {
+            margin-right: 0.5rem;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .section {
+                padding: 1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+            }
+
+            nav ul li {
+                margin: 0.5rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #darkModeToggle {
+                margin-top: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>San Nicolás de los Arroyos</h1>
+            <button id="darkModeToggle" aria-label="Alternar modo oscuro">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#info"><i class="fas fa-info-circle"></i> Información</a></li>
+            <li><a href="#turismo"><i class="fas fa-landmark"></i> Turismo</a></li>
+            <li><a href="#historia"><i class="fas fa-book"></i> Historia</a></li>
+            <li><a href="#gastronomia"><i class="fas fa-utensils"></i> Gastronomía</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section class="section" id="info">
+            <h2><i class="fas fa-info-circle"></i> Información General</h2>
+            <p>San Nicolás de los Arroyos es una ciudad argentina ubicada en el extremo norte de la provincia de Buenos Aires, a orillas del río Paraná. Es conocida como la "Ciudad de María" debido a las apariciones marianas que se dice ocurrieron allí.</p>
+            <p>La ciudad se extiende sobre una superficie de 680 km² y está situada a unos 240 km al noroeste de la Ciudad de Buenos Aires. Su ubicación estratégica sobre el río Paraná la convierte en un importante puerto fluvial y en un centro industrial significativo de la región.</p>
+            <img src="https://rlzxzgvmjfqbwzqxhwlv.supabase.co/storage/v1/object/public/images/san-nicolas/panoramica.jpg" alt="Vista panorámica de San Nicolás de los Arroyos" class="w-full h-auto rounded-lg shadow-md my-4">
+        </section>
+
+        <section class="section" id="fundacion">
+            <h2><i class="fas fa-flag"></i> Fundación</h2>
+            <p>La ciudad fue fundada el 14 de abril de 1748 por Rafael de Aguiar. Originalmente se llamó "Pueblo de San Nicolás de los Arroyos del Paraná".</p>
+            <p>El nombre de la ciudad proviene de San Nicolás de Bari, santo patrono del fundador Rafael de Aguiar. La fundación oficial se realizó en los terrenos donados por Aguiar, donde se construyó la primera capilla dedicada a San Nicolás de Bari.</p>
+            <img src="https://rlzxzgvmjfqbwzqxhwlv.supabase.co/storage/v1/object/public/images/san-nicolas/monumento-fundador.jpg" alt="Monumento a Rafael de Aguiar, fundador de San Nicolás" class="w-full h-auto rounded-lg shadow-md my-4">
+        </section>
+
+        <section class="section" id="poblacion">
+            <h2><i class="fas fa-users"></i> Población</h2>
+            <p>Según el censo de 2010, San Nicolás de los Arroyos tenía una población de 145,857 habitantes. Estimaciones más recientes sugieren que la población ha crecido a aproximadamente 160,000 habitantes para el año 2021. La ciudad ha experimentado un crecimiento constante debido a su desarrollo industrial y su importancia como centro religioso.</p>
+        </section>
+
+        <section class="section" id="turismo">
+            <h2><i class="fas fa-landmark"></i> Sitios Turísticos</h2>
+            <ul>
+                <li><i class="fas fa-church"></i> Santuario de la Virgen del Rosario de San Nicolás</li>
+                <li><i class="fas fa-theater-masks"></i> Teatro Municipal Rafael de Aguiar</li>
+                <li><i class="fas fa-archive"></i> Museo y Archivo Histórico Municipal "Gregorio Santiago Chervo"</li>
+                <li><i class="fas fa-tree"></i> Parque Regional Forestal y Botánico "Rafael de Aguiar"</li>
+                <li><i class="fas fa-ship"></i> Costanera y Puerto de San Nicolás</li>
+            </ul>
+            <img src="https://rlzxzgvmjfqbwzqxhwlv.supabase.co/storage/v1/object/public/images/san-nicolas/santuario.jpg" alt="Santuario de la Virgen del Rosario de San Nicolás" class="w-full h-auto rounded-lg shadow-md my-4">
+            <p>Además de estos sitios emblemáticos, San Nicolás ofrece atractivos como el Paseo Costanero, ideal para caminatas y actividades al aire libre, y el Complejo Museológico y Paleontológico "Augusto Schulz", que alberga importantes hallazgos paleontológicos de la región.</p>
+        </section>
+
+        <section class="section" id="historia">
+            <h2><i class="fas fa-book"></i> Historia</h2>
+            <p>San Nicolás jugó un papel importante en la historia argentina. Aquí se firmó el Acuerdo de San Nicolás en 1852, un paso crucial hacia la organización nacional de Argentina. El 25 de septiembre de 1983, se reportó la primera aparición de la Virgen María a una mujer llamada Gladys Quiroga de Motta, lo que llevó a la construcción del Santuario de la Virgen del Rosario de San Nicolás.</p>
+            <img src="https://rlzxzgvmjfqbwzqxhwlv.supabase.co/storage/v1/object/public/images/san-nicolas/acuerdo.jpg" alt="Firma del Acuerdo de San Nicolás" class="w-full h-auto rounded-lg shadow-md my-4">
+            <p>San Nicolás también fue escenario de importantes eventos históricos como la Batalla de San Nicolás en 1811, durante las guerras de independencia. La ciudad jugó un papel crucial en el desarrollo industrial de Argentina, especialmente con la instalación de la planta siderúrgica SOMISA (Sociedad Mixta Siderúrgica Argentina) en 1947, que marcó un hito en la industria nacional.</p>
+        </section>
+
+        <section class="section" id="tradiciones">
+            <h2><i class="fas fa-heart"></i> Tradiciones</h2>
+            <p>Una de las tradiciones más importantes es la peregrinación anual al Santuario de la Virgen del Rosario cada 25 de septiembre, que atrae a miles de fieles de todo el país.</p>
+            <img src="https://rlzxzgvmjfqbwzqxhwlv.supabase.co/storage/v1/object/public/images/san-nicolas/peregrinacion.jpg" alt="Peregrinación anual al Santuario de la Virgen del Rosario" class="w-full h-auto rounded-lg shadow-md my-4">
+            <p>Otra tradición importante es la Fiesta del Acuerdo, celebrada cada 31 de mayo para conmemorar la firma del Acuerdo de San Nicolás. Esta celebración incluye desfiles, espectáculos culturales y la tradicional "Cantata del Acuerdo", una representación musical de este importante evento histórico.</p>
+        </section>
+
+        <section class="section" id="origenes">
+            <h2><i class="fas fa-scroll"></i> Orígenes y Leyendas</h2>
+            <p>La leyenda más famosa de San Nicolás es la de las apariciones marianas. Se dice que la Virgen María se apareció a una mujer local, Gladys Quiroga de Motta, en 1983, dando inicio a una serie de mensajes y profecías.</p>
+            <p>Otra leyenda local habla de un túnel secreto que conectaba la antigua Iglesia de San Nicolás con el río Paraná, supuestamente utilizado durante las invasiones inglesas y las guerras de independencia. Aunque nunca se ha encontrado evidencia concreta de su existencia, esta historia forma parte del folclore local.</p>
+        </section>
+
+        <section class="section" id="gastronomia">
+            <h2><i class="fas fa-utensils"></i> Comidas Típicas</h2>
+            <ul>
+                <li><i class="fas fa-drumstick-bite"></i> Asado criollo</li>
+                <li><i class="fas fa-bread-slice"></i> Empanadas</li>
+                <li><i class="fas fa-soup"></i> Locro (en fechas patrias)</li>
+                <li><i class="fas fa-fish"></i> Pescados de río (por su ubicación junto al Paraná)</li>
+            </ul>
+            <img src="https://rlzxzgvmjfqbwzqxhwlv.supabase.co/storage/v1/object/public/images/san-nicolas/gastronomia.jpg" alt="Platos típicos de San Nicolás de los Arroyos" class="w-full h-auto rounded-lg shadow-md my-4">
+            <p>San Nicolás también es conocida por sus dulces regionales, especialmente los elaborados con frutas locales como el membrillo y la batata. El "Postre Vigilante", una combinación de queso y dulce de membrillo o batata, es muy popular en la región. Además, la influencia de los inmigrantes italianos se refleja en la popularidad de las pastas caseras y los helados artesanales.</p>
+        </section>
+
+        <section class="section" id="socialMedia">
+            <h2><i class="fas fa-share-alt"></i> Redes Sociales</h2>
+            <div id="socialMedia">
+                <a href="https://www.facebook.com/MunicipalidadSanNicolas" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="https://www.instagram.com/munisannicolas" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://twitter.com/munisannicolas" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+            </div>
+            <p>Además de seguir las redes sociales oficiales, los visitantes pueden mantenerse actualizados sobre eventos y noticias locales a través del sitio web oficial de la municipalidad: <a href="https://www.sannicolas.gov.ar" target="_blank"><i class="fas fa-globe"></i> Sitio Web Oficial</a></p>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('darkModeToggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            this.innerHTML = document.body.classList.contains('dark-mode') ? 
+                '<i class="fas fa-sun"></i>' : 
+                '<i class="fas fa-moon"></i>';
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Intersection Observer for section animations
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => {
+            section.style.opacity = 0;
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.5s, transform 0.5s';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
